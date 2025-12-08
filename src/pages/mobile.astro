@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+---
+
+<Layout>
+    <div
+        class="flex flex-col h-full items-center justify-center align-middle px-8"
+    >
+        <h1 class="text-4xl font-mono text-primary py-4 text-center">
+            mobile detected...
+        </h1>
+        <div class="text-center font-serif py-4 space-y-2">
+            <p class="text-black text-sm">
+                thanks for your interest! sadly, this website is only available
+                for desktop right now. but if you can't visit this from your
+                laptop, please contact me and we'll look into it together!
+            </p>
+        </div>
+        <div class="py-6">
+            <p class="text-black font-serif text-sm">
+                <a
+                    class="underline text-primary hover:text-blue-700"
+                    href="mailto:me@m4rt.nl">contact me</a
+                >
+            </p>
+        </div>
+    </div>
+</Layout>

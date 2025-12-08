@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@plugin "@iconify/tailwind4";
+
+@theme {
+    --font-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+    --font-serif: "Fraunces", Georgia, serif;
+    --color-primary: #4f70c8;
+}
+
+/* Courtesy from Arne Banck on CodePen. Written in plain CSS to make it easier to work with */
+.anim750 {
+    transition: all 750ms ease-in-out;
+}
+
+.sticker {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    backface-visibility: hidden;
+}
+
+.sticker .sticky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 90px;
+    transform: rotate(-125deg);
+}
+
+.sticker .circle_wrapper {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.sticker .circle {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+    border-radius: 999px;
+}
+
+.sticker .back {
+    height: 21px;
+    top: 25px;
+}
+
+.sticker .back .circle {
+    margin-top: -65px;
+    background-color: #fff;
+    border: 1px solid gray;
+}
+
+.sticker .front {
+    height: 75px;
+    bottom: 0;
+    top: auto;
+    -webkit-box-shadow: 0 -70px 10px -70px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 -70px 10px -70px rgba(0, 0, 0, 0.3);
+}
+
+.sticker .front .circle {
+    margin-top: -5px;
+    background: url("/sticker.svg");
+    background-size: 70px 70px;
+    transform: rotate(-235deg);
+}
+
+.sticker:hover .back {
+    height: 51px;
+    top: 44px;
+}
+
+.sticker:hover .back .circle {
+    margin-top: -25px;
+}

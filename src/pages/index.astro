@@ -1,11 +1,76 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import "../styles/global.css";
+import bg1 from "../assets/bg1.png";
 ---
 
 <Layout>
-	<Welcome />
+    <div class="flex flex-col h-full items-center justify-center align-middle">
+        <p class="text-sm text-black italic font-mono py-4" id="description">
+        </p>
+        <Image
+            src={bg1}
+            alt="Background Image"
+            class="absolute mr-120 mb-5 h-5/16 w-auto"
+        />
+        <div class="relative">
+            <h1 class="text-8xl font-mono text-primary py-4">
+                <span>mart zielma</span><span class="relative"
+                    >n
+                    <div class="sticker rotate-12 absolute -top-12 -right-96">
+                        <div class="reveal circle_wrapper">
+                            <div class="circle bg-white"></div>
+                        </div>
+
+                        <div class="sticky">
+                            <div class="front circle_wrapper">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+
+                        <div class="sticky anim750">
+                            <div class="back circle_wrapper anim750">
+                                <div class="circle anim750"></div>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </h1>
+        </div>
+        <p class="text-black font-serif py-4 -mt-20">
+            <a class="underline italic" href="#about">about me</a>
+            ·
+            <a class="underline italic" href="#projects">projects</a>
+            ·
+            <a class="underline italic" href="#contact">contact</a>
+        </p>
+        <div class="flex flex-row gap-4">
+            <span class="icon-[pixel--linkedin] h-8 w-8"></span>
+            <span class="icon-[pixel--x] h-8 w-8"></span>
+            <span class="icon-[pixel--github] h-8 w-8"></span>
+            <span class="icon-[pixel--discord] h-8 w-8"></span>
+            <span class="icon-[fa7-brands--itch-io] h-8 w-8"></span>
+        </div>
+    </div>
 </Layout>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", function () {
+        const strings = [
+            "professional idiot",
+            "maker™",
+            "addicted to mountainbiking & caffeine",
+            "sleep deprived",
+            "web and game developer",
+            "refresh me for some fun texts :)",
+        ];
+
+        let string = strings[Math.floor(Math.random() * strings.length)];
+
+        const element = document.getElementById("description");
+        if (element) {
+            element.innerText = string;
+        }
+    });
+</script>
