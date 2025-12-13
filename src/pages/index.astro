@@ -46,11 +46,30 @@ import bg1 from "../assets/bg1.png";
             <a class="underline italic" href="#contact">contact</a>
         </p>
         <div class="flex flex-row gap-4">
-            <span class="icon-[pixel--linkedin] h-8 w-8"></span>
-            <span class="icon-[pixel--x] h-8 w-8"></span>
-            <span class="icon-[pixel--github] h-8 w-8"></span>
-            <span class="icon-[pixel--discord] h-8 w-8"></span>
-            <span class="icon-[fa7-brands--itch-io] h-8 w-8"></span>
+            <a
+                class="icon-[pixel--linkedin] h-8 w-8"
+                href="https://www.linkedin.com/in/mart-zielman/"></a>
+            <a class="icon-[pixel--x] h-8 w-8" href="https://x.com/SwiftDust10"
+            ></a>
+            <a
+                class="icon-[pixel--github] h-8 w-8"
+                href="https://github.com/SwiftDust"></a>
+            <button
+                class="icon-[pixel--discord] h-8 w-8"
+                data-tooltip-target="tooltip-default"
+            >
+            </button>
+            <div
+                id="tooltip-default"
+                role="tooltip"
+                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+            >
+                @m_0342sa
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <a
+                class="icon-[fa7-brands--itch-io] h-8 w-8"
+                href="https://swiftdust.itch.io"></a>
         </div>
     </div>
 </Layout>
