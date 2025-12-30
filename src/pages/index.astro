@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Subpage from "../layouts/Subpage.astro";
 import { Image } from "astro:assets";
+
 import "../styles/global.css";
 import bg1 from "../assets/bg1.png";
 ---
@@ -11,7 +13,7 @@ import bg1 from "../assets/bg1.png";
         </p>
         <Image
             src={bg1}
-            alt="Background Image"
+            alt="A background of a cityscape"
             class="absolute mr-120 mb-5 h-5/16 w-auto"
         />
         <div class="relative">
@@ -39,12 +41,31 @@ import bg1 from "../assets/bg1.png";
             </h1>
         </div>
         <p class="text-black font-serif py-4 -mt-20">
-            <a class="underline italic" href="#about">about me</a>
+            <button
+                id="about"
+                class="underline italic relative z-20 pointer-events-auto"
+                type="button">about me</button
+            >
             ·
-            <a class="underline italic" href="#projects">projects</a>
+            <button
+                id="projects"
+                class="underline italic relative z-20 pointer-events-auto"
+                type="button">projects</button
+            >
             ·
-            <a class="underline italic" href="#contact">contact</a>
+            <button
+                id="blog"
+                class="underline italic relative z-20 pointer-events-auto"
+                type="button">blog</button
+            >
+            ·
+            <button
+                id="contact"
+                class="underline italic relative z-20 pointer-events-auto"
+                type="button">contact</button
+            >
         </p>
+
         <div class="flex flex-row gap-4">
             <a
                 class="icon-[pixel--linkedin] h-8 w-8"
@@ -72,9 +93,10 @@ import bg1 from "../assets/bg1.png";
                 href="https://swiftdust.itch.io"></a>
         </div>
     </div>
+    <Subpage id="about-page" title="About me" closed="true">testy test</Subpage>
 </Layout>
 
-<script is:inline>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
         const strings = [
             "professional idiot",
@@ -82,7 +104,7 @@ import bg1 from "../assets/bg1.png";
             "addicted to mountainbiking & caffeine",
             "sleep deprived",
             "web and game developer",
-            "refresh me for some fun texts :)",
+            "refresh me for some fun stuff :)",
         ];
 
         let string = strings[Math.floor(Math.random() * strings.length)];
@@ -92,4 +114,16 @@ import bg1 from "../assets/bg1.png";
             element.innerText = string;
         }
     });
+
+    const links = document.querySelectorAll("button");
+
+    for (const link of links) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            let id = link.getAttribute("id");
+            let subpage = document.getElementById(`${id}-page`);
+            console.log(subpage);
+            subpage!.classList.toggle("hidden");
+        });
+    }
 </script>

@@ -1,0 +1,12 @@
+---
+import "../styles/global.css";
+
+const { id = "window", title = "Window Title", closed = "" } = Astro.props;
+---
+
+<div id={id} class={`bg-gray-700 p-4 ${closed ? "hidden" : ""}`}>
+    <p class="text-6xl text-white">{title}</p>
+    <div class="mt-4 text-white">
+        <slot />
+    </div>
+</div>
