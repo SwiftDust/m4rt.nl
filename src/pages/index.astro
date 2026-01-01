@@ -8,92 +8,104 @@ import bg1 from "../assets/bg1.png";
 ---
 
 <Layout>
-    <div class="flex flex-col h-full items-center justify-center align-middle">
-        <p class="text-sm text-black italic font-mono py-4" id="description">
-        </p>
-        <Image
-            src={bg1}
-            alt="A background of a cityscape"
-            class="absolute mr-120 mb-5 h-5/16 w-auto"
-        />
-        <div class="relative">
-            <h1 class="text-8xl font-mono text-primary py-4">
-                <span>mart zielma</span><span class="relative"
-                    >n
-                    <div class="sticker rotate-12 absolute -top-12 -right-96">
-                        <div class="reveal circle_wrapper">
-                            <div class="circle bg-white"></div>
-                        </div>
+    <div class="w-full h-full">
+        <Subpage id="about-page" title="About me" closed="true"
+            >testy test</Subpage
+        >
+        <div
+            class="flex flex-col h-full items-center justify-center align-middle"
+        >
+            <p
+                class="text-sm text-black italic font-mono py-4"
+                id="description"
+            >
+            </p>
+            <Image
+                src={bg1}
+                alt="A background of a cityscape"
+                class="absolute mr-120 mb-5 h-5/16 w-auto"
+            />
+            <div class="relative">
+                <h1 class="text-8xl font-mono text-primary py-4">
+                    <span>mart zielma</span><span class="relative"
+                        >n
+                        <div
+                            class="sticker rotate-12 absolute -top-12 -right-96"
+                        >
+                            <div class="reveal circle_wrapper">
+                                <div class="circle bg-white"></div>
+                            </div>
 
-                        <div class="sticky">
-                            <div class="front circle_wrapper">
-                                <div class="circle"></div>
+                            <div class="sticky">
+                                <div class="front circle_wrapper">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+
+                            <div class="sticky anim750">
+                                <div class="back circle_wrapper anim750">
+                                    <div class="circle anim750"></div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="sticky anim750">
-                            <div class="back circle_wrapper anim750">
-                                <div class="circle anim750"></div>
-                            </div>
-                        </div>
-                    </div>
-                </span>
-            </h1>
-        </div>
-        <p class="text-black font-serif py-4 -mt-20">
-            <button
-                id="about"
-                class="underline italic relative z-20 pointer-events-auto"
-                type="button">about me</button
-            >
-            ·
-            <button
-                id="projects"
-                class="underline italic relative z-20 pointer-events-auto"
-                type="button">projects</button
-            >
-            ·
-            <button
-                id="blog"
-                class="underline italic relative z-20 pointer-events-auto"
-                type="button">blog</button
-            >
-            ·
-            <button
-                id="contact"
-                class="underline italic relative z-20 pointer-events-auto"
-                type="button">contact</button
-            >
-        </p>
-
-        <div class="flex flex-row gap-4">
-            <a
-                class="icon-[pixel--linkedin] h-8 w-8"
-                href="https://www.linkedin.com/in/mart-zielman/"></a>
-            <a class="icon-[pixel--x] h-8 w-8" href="https://x.com/SwiftDust10"
-            ></a>
-            <a
-                class="icon-[pixel--github] h-8 w-8"
-                href="https://github.com/SwiftDust"></a>
-            <button
-                class="icon-[pixel--discord] h-8 w-8"
-                data-tooltip-target="tooltip-default"
-            >
-            </button>
-            <div
-                id="tooltip-default"
-                role="tooltip"
-                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-            >
-                @m_0342sa
-                <div class="tooltip-arrow" data-popper-arrow></div>
+                    </span>
+                </h1>
             </div>
-            <a
-                class="icon-[fa7-brands--itch-io] h-8 w-8"
-                href="https://swiftdust.itch.io"></a>
+            <p class="text-black font-serif py-4 -mt-20">
+                <button
+                    id="about"
+                    class="underline italic relative z-20 pointer-events-auto"
+                    type="button">about me</button
+                >
+                ·
+                <button
+                    id="projects"
+                    class="underline italic relative z-20 pointer-events-auto"
+                    type="button">projects</button
+                >
+                ·
+                <button
+                    id="blog"
+                    class="underline italic relative z-20 pointer-events-auto"
+                    type="button">blog</button
+                >
+                ·
+                <button
+                    id="contact"
+                    class="underline italic relative z-20 pointer-events-auto"
+                    type="button">contact</button
+                >
+            </p>
+
+            <div class="flex flex-row gap-4">
+                <a
+                    class="icon-[pixel--linkedin] h-8 w-8"
+                    href="https://www.linkedin.com/in/mart-zielman/"></a>
+                <a
+                    class="icon-[pixel--x] h-8 w-8"
+                    href="https://x.com/SwiftDust10"></a>
+                <a
+                    class="icon-[pixel--github] h-8 w-8"
+                    href="https://github.com/SwiftDust"></a>
+                <button
+                    class="icon-[pixel--discord] h-8 w-8"
+                    data-tooltip-target="tooltip-default"
+                >
+                </button>
+                <div
+                    id="tooltip-default"
+                    role="tooltip"
+                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+                >
+                    @m_0342sa
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+                <a
+                    class="icon-[fa7-brands--itch-io] h-8 w-8"
+                    href="https://swiftdust.itch.io"></a>
+            </div>
         </div>
     </div>
-    <Subpage id="about-page" title="About me" closed="true">testy test</Subpage>
 </Layout>
 
 <script>

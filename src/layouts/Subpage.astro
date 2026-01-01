@@ -4,9 +4,27 @@ import "../styles/global.css";
 const { id = "window", title = "Window Title", closed = "" } = Astro.props;
 ---
 
-<div id={id} class={`bg-gray-700 p-4 ${closed ? "hidden" : ""}`}>
-    <p class="text-6xl text-white">{title}</p>
-    <div class="mt-4 text-white">
+<div
+    id={id}
+    class={`bg-gray-700 p-4 w-full h-full text-white ${closed ? "hidden" : ""}`}
+    data-subpage-id={id}
+>
+    <div class="gap-4">
+        <span class="icon-[pixel--arrow-left-solid]"></span>
+        <button class="underline" id="home-btn">Back home</button>
+    </div>
+    <p class="text-6xl">{title}</p>
+    <div class="mt-4">
         <slot />
     </div>
 </div>
+
+<script>
+    const homeBtn = document.getElementById("home-btn");
+    homeBtn?.addEventListener("click", () => {
+        const root = homeBtn.closest("[data-subpage-id]");
+        const id = root?.getAttribute("id");
+        let subpage = document.getElementById(`${id}`);
+        if (subpage) subpage.classList.toggle("hidden");
+    });
+</script>
