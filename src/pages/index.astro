@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Subpage from "../layouts/Subpage.astro";
+import Project from "../components/project.astro";
 import { Image } from "astro:assets";
 
 import "../styles/global.css";
@@ -9,9 +10,114 @@ import bg1 from "../assets/bg1.png";
 
 <Layout>
     <div class="w-full h-full">
-        <Subpage id="about-page" title="about me" closed="true"
-            >testy test</Subpage
-        >
+        <!-- ===SUBPAGES===
+        (would be seperate pages on most websites) -->
+        <Subpage id="about-page" title="about me" closed="true">
+            hey, thanks for visiting my website! i'm Mart, a 15-year-old
+            high-schooler from The Netherlands. i absolutely LOVE coding – that
+            is, at times. i code on and off, but i also love learning languages.
+            i'm trying to be more consistent with coding, though, so i can build
+            some big projects and stuff i'm passionate about and can show off.<br
+            />
+
+            i enjoyed computers and tech ever since i was a little kid. like
+            most kids, i started off with playing some flash games and watching
+            youtube, but soon i fixed the computer problems of my classmates and
+            family. this wouldn't go unnoticed by my grandpa, who worked at some
+            big software companies like AT&T when he was younger and he showed
+            me Scratch. i liked it a lot and started making my own projects when
+            i was seven.<br /><br />
+
+            later, i learned some other programming languages like python,
+            javascript and html/css. i made a few webpages and games with it,
+            but mostly from tutorials and changing little things.<br />
+
+            even later, i made a few websites for people, but these were made
+            using wordpress. i also helped coding a bit with a discord bot and a
+            game, which is how i rolled into coding actual projects instead of
+            just tinkering around, which i did before when i mastered a language
+            a bit. this was also the point where i learned git and github. <br
+            />
+
+            finally, i got an e-mail from Hack Club after signing up for GitHub
+            Education to get some perks. first i thought it was only for very
+            experienced coders and i was busy as well. luckily, i starred the
+            email and later i had a friend who wanted a Thinkpad and remembered
+            the email, which had a Thinkpad mention. <br /><br />
+
+            the program (Arcade) didn't run anymore, but luckily there was
+            another program in the winter! i signed up for that. the idea was
+            that you would code projects (creative ones) and get prizes for
+            them. this was when i started shipping scrappy projects and got the
+            revelation that you don't have to code the next Google in order for
+            your coding to be of importance. <br /><br />
+
+            the rest? the rest is history.<br /><br />
+            <i>
+                wow thanks for reading all of this! i think my projects are even
+                more interesting to see :) view them <button
+                    id="projects"
+                    class="nav-btn underline italic relative z-20 pointer-events-auto"
+                    type="button">here</button
+                >!
+            </i>
+
+            <!-- 88x31s -->
+            <div class="flex flex-row gap-1">
+                <img
+                    src="https://cyber.dabamos.de/88x31/any2.gif"
+                    alt="best viewed with any browser"
+                />
+                <img
+                    src="https://cyber.dabamos.de/88x31/anythingbut.gif"
+                    alt="Anything But Chrome"
+                />
+                <img
+                    src="https://cyber.dabamos.de/88x31/besteyes2.gif"
+                    alt="Best Viewed with Eyes"
+                />
+                <img
+                    src="https://elijahjmears.com/_astro/poweredbyastro.AMx1GbNY_ZfahFC.gif"
+                    alt="Powered by Astro"
+                />
+                <img
+                    src="https://hex4.xyz/88x31/hackclub.png"
+                    alt="Hack Club"
+                />
+                <img src="https://hex4.xyz/88x31/godot.png" alt="Godot" />
+            </div>
+        </Subpage>
+
+        <Subpage id="projects-page" title="projects" closed="true">
+            <div class="flex flex-wrap gap-4">
+                <Project
+                    id="project1"
+                    title="Project 1"
+                    description="Project 1 Description"
+                    image="https://www.google.com/logos/doodles/2026/new-years-day-2026-6753651837110748.2-la1f1f1f.gif"
+                    status="Finished"
+                    time="December 2025-January 2026"
+                />
+                <Project
+                    id="project2"
+                    title="Project 2"
+                    description="Project 2 Description"
+                    image="https://www.google.com/logos/doodles/2026/new-years-day-2026-6753651837110748.2-la1f1f1f.gif"
+                    status="Finished"
+                    time="December 2025-January 2026"
+                />
+                <Project
+                    id="project3"
+                    title="Project 3"
+                    description="Project 3 Description"
+                    image="https://www.google.com/logos/doodles/2026/new-years-day-2026-6753651837110748.2-la1f1f1f.gif"
+                    status="Finished"
+                    time="December 2025-January 2026"
+                />
+            </div>
+        </Subpage>
+
+        <!-- ===MAIN PAGE CONTENT=== -->
         <div
             class="flex flex-col h-full items-center justify-center align-middle"
         >
@@ -64,12 +170,12 @@ import bg1 from "../assets/bg1.png";
                     type="button">projects</button
                 >
                 ·
-                <button
+                <!--<button
                     id="blog"
                     class="nav-btn underline italic relative z-20 pointer-events-auto"
                     type="button">blog</button
                 >
-                ·
+                ·-->
                 <button
                     id="contact"
                     class="nav-btn underline italic relative z-20 pointer-events-auto"

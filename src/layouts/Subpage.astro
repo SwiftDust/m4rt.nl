@@ -97,7 +97,7 @@ const { id = "window", title = "Window Title", closed = "" } = Astro.props;
     window.openSubpage = openSubpage;
     window.closeSubpage = closeSubpage;
 
-    document.addEventListener("DOMContentLoaded", () => {
+    /*document.addEventListener("DOMContentLoaded", () => {
         const homeBtn = document.getElementById("home-btn");
         if (!homeBtn) return;
 
@@ -107,5 +107,17 @@ const { id = "window", title = "Window Title", closed = "" } = Astro.props;
             const id = root?.getAttribute("id");
             if (id) closeSubpage(id);
         });
+    });*/
+
+    document.addEventListener("click", (event) => {
+        const btn =
+            event.target && event.target.closest
+                ? event.target.closest(".subpage__close")
+                : null;
+        if (!btn) return;
+        event.preventDefault();
+        const root = btn.closest("[data-subpage-id]");
+        const id = root?.getAttribute("id");
+        if (id) closeSubpage(id);
     });
 </script>

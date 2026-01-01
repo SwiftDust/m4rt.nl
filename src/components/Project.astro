@@ -1,0 +1,42 @@
+---
+const {
+    id = "project",
+    title = "Project Name",
+    description = "Project Description",
+    image = "https://www.google.com/logos/doodles/2026/new-years-day-2026-6753651837110748.2-la1f1f1f.gif",
+    status = "Finished",
+    time = "December 2025-January 2026",
+    link = "#",
+} = Astro.props;
+
+const getStatusColor = (tag: string) => {
+    switch (tag.toLowerCase()) {
+        case "finished":
+            return "bg-red-500 text-white";
+        case "in progress":
+            return "bg-green-500 text-white";
+        case "coming soon":
+            return "bg-orange-500 text-white";
+        default:
+            return "bg-gray-200 text-gray-700";
+    }
+};
+---
+
+<div id={id} class="max-w-sm overflow-hidden rounded bg-gray-200">
+    <img class="w-full" src={image} alt="project image" />
+    <div class="px-6 py-4">
+        <a href={link}
+            ><div class="font-bold text-xl text-black mb-2">{title}</div></a
+        >
+        <p class="text-xs text-gray-400">{time}</p>
+        <span
+            class={`rounded-full px-2 py-1 text-xs font-semibold ${getStatusColor(status)}`}
+        >
+            {status}
+        </span>
+        <p class="text-gray-700 text-base">
+            {description}
+        </p>
+    </div>
+</div>
