@@ -9,7 +9,7 @@ import bg1 from "../assets/bg1.png";
 
 <Layout>
     <div class="w-full h-full">
-        <Subpage id="about-page" title="About me" closed="true"
+        <Subpage id="about-page" title="about me" closed="true"
             >testy test</Subpage
         >
         <div
@@ -54,25 +54,25 @@ import bg1 from "../assets/bg1.png";
             <p class="text-black font-serif py-4 -mt-20">
                 <button
                     id="about"
-                    class="underline italic relative z-20 pointer-events-auto"
+                    class="nav-btn underline italic relative z-20 pointer-events-auto"
                     type="button">about me</button
                 >
                 ·
                 <button
                     id="projects"
-                    class="underline italic relative z-20 pointer-events-auto"
+                    class="nav-btn underline italic relative z-20 pointer-events-auto"
                     type="button">projects</button
                 >
                 ·
                 <button
                     id="blog"
-                    class="underline italic relative z-20 pointer-events-auto"
+                    class="nav-btn underline italic relative z-20 pointer-events-auto"
                     type="button">blog</button
                 >
                 ·
                 <button
                     id="contact"
-                    class="underline italic relative z-20 pointer-events-auto"
+                    class="nav-btn underline italic relative z-20 pointer-events-auto"
                     type="button">contact</button
                 >
             </p>
@@ -127,15 +127,23 @@ import bg1 from "../assets/bg1.png";
         }
     });
 
-    const links = document.querySelectorAll("button");
+    const navButtons = document.querySelectorAll(".nav-btn");
 
-    for (const link of links) {
-        link.addEventListener("click", function (event) {
+    for (const btn of navButtons) {
+        btn.addEventListener("click", function (event) {
             event.preventDefault();
-            let id = link.getAttribute("id");
-            let subpage = document.getElementById(`${id}-page`);
-            console.log(subpage);
-            subpage!.classList.toggle("hidden");
+            const id = btn.getAttribute("id");
+            if (!id) return;
+            if (typeof window.openSubpage === "function") {
+                window.openSubpage(`${id}-page`);
+                return;
+            }
+
+            const subpage = document.getElementById(`${id}-page`);
+            if (!subpage) return;
+            subpage.classList.remove("is-closing");
+            subpage.classList.remove("is-hidden");
+            subpage.classList.add("is-visible");
         });
     }
 </script>

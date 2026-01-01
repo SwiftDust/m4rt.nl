@@ -6,25 +6,106 @@ const { id = "window", title = "Window Title", closed = "" } = Astro.props;
 
 <div
     id={id}
-    class={`bg-gray-700 p-4 w-full h-full text-white ${closed ? "hidden" : ""}`}
+    class={`subpage ${closed ? "is-hidden" : "is-visible"}`}
     data-subpage-id={id}
+    role="dialog"
+    aria-hidden={closed ? "true" : "false"}
 >
     <div class="gap-4">
-        <span class="icon-[pixel--arrow-left-solid]"></span>
-        <button class="underline" id="home-btn">Back home</button>
+        <span class="icon-[pixel--arrow-left-solid]" aria-hidden="true"></span>
+        <button class="underline font-serif" id="home-btn" type="button"
+            >Back home</button
+        >
     </div>
-    <p class="text-6xl">{title}</p>
-    <div class="mt-4">
+    <h2 class="text-6xl font-mono">{title}</h2>
+    <div class="mt-4 font-serif">
         <slot />
     </div>
 </div>
 
+<style>
+    .subpage {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        background: rgba(55, 65, 81, 1);
+        padding: 1rem;
+        color: #fff;
+        display: block;
+        transform: translateY(100%);
+        opacity: 0;
+        transition:
+            transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+            opacity 300ms ease;
+        pointer-events: none;
+    }
+
+    .subpage.is-visible {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .subpage.is-hidden {
+        transform: translateY(100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .subpage.is-closing {
+        transform: translateY(100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+</style>
+
 <script>
-    const homeBtn = document.getElementById("home-btn");
-    homeBtn?.addEventListener("click", () => {
-        const root = homeBtn.closest("[data-subpage-id]");
-        const id = root?.getAttribute("id");
-        let subpage = document.getElementById(`${id}`);
-        if (subpage) subpage.classList.toggle("hidden");
+    function getSubpageEl(id) {
+        if (!id) return null;
+        return document.getElementById(id);
+    }
+
+    function openSubpage(id) {
+        const el = getSubpageEl(id);
+        if (!el) return;
+        el.classList.remove("is-closing");
+        el.classList.remove("is-hidden");
+        void el.offsetWidth;
+        el.classList.add("is-visible");
+        el.setAttribute("aria-hidden", "false");
+    }
+
+    function closeSubpage(id) {
+        const el = getSubpageEl(id);
+        if (!el) return;
+        if (el.classList.contains("is-hidden")) return;
+
+        el.classList.remove("is-visible");
+        el.classList.add("is-closing");
+        el.setAttribute("aria-hidden", "true");
+
+        const onTransitionEnd = (ev) => {
+            if (ev.propertyName === "transform") {
+                el.classList.remove("is-closing");
+                el.classList.add("is-hidden");
+                el.removeEventListener("transitionend", onTransitionEnd);
+            }
+        };
+        el.addEventListener("transitionend", onTransitionEnd);
+    }
+
+    window.openSubpage = openSubpage;
+    window.closeSubpage = closeSubpage;
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const homeBtn = document.getElementById("home-btn");
+        if (!homeBtn) return;
+
+        homeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const root = homeBtn.closest("[data-subpage-id]");
+            const id = root?.getAttribute("id");
+            if (id) closeSubpage(id);
+        });
     });
 </script>
