@@ -13,7 +13,7 @@ const { id = "window", title = "Window Title", closed = "" } = Astro.props;
 >
     <div class="gap-4">
         <span class="icon-[pixel--arrow-left-solid]" aria-hidden="true"></span>
-        <button class="underline font-serif" id="home-btn" type="button"
+        <button class="underline font-serif home-btn" type="button"
             >Back home</button
         >
     </div>
@@ -97,27 +97,16 @@ const { id = "window", title = "Window Title", closed = "" } = Astro.props;
     window.openSubpage = openSubpage;
     window.closeSubpage = closeSubpage;
 
-    /*document.addEventListener("DOMContentLoaded", () => {
-        const homeBtn = document.getElementById("home-btn");
-        if (!homeBtn) return;
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("[data-subpage-id]").forEach((subpageEl) => {
+            const homeBtn = subpageEl.querySelector(".home-btn");
+            if (!homeBtn) return;
 
-        homeBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            const root = homeBtn.closest("[data-subpage-id]");
-            const id = root?.getAttribute("id");
-            if (id) closeSubpage(id);
+            homeBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                const id = subpageEl.getAttribute("id");
+                if (id) closeSubpage(id);
+            });
         });
-    });*/
-
-    document.addEventListener("click", (event) => {
-        const btn =
-            event.target && event.target.closest
-                ? event.target.closest(".subpage__close")
-                : null;
-        if (!btn) return;
-        event.preventDefault();
-        const root = btn.closest("[data-subpage-id]");
-        const id = root?.getAttribute("id");
-        if (id) closeSubpage(id);
     });
 </script>
