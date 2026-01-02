@@ -7,23 +7,24 @@ const {
     status = "Finished",
     time = "December 2025-January 2026",
     link = "#",
+    githubLink = "https://github.com/SwiftDust",
 } = Astro.props;
 
 const getStatusColor = (tag: string) => {
     switch (tag.toLowerCase()) {
         case "finished":
-            return "bg-red-500 text-white";
-        case "in progress":
             return "bg-green-500 text-white";
-        case "coming soon":
+        case "in progress":
             return "bg-orange-500 text-white";
+        case "coming soon":
+            return "bg-purple-500 text-white";
         default:
             return "bg-gray-200 text-gray-700";
     }
 };
 ---
 
-<div id={id} class="max-w-sm overflow-hidden rounded bg-gray-200">
+<div id={id} class="max-w-xs overflow-hidden rounded bg-gray-200">
     <img class="w-full" src={image} alt="project image" />
     <div class="px-6 py-4">
         <a href={link}
@@ -36,7 +37,9 @@ const getStatusColor = (tag: string) => {
             {status}
         </span>
         <p class="text-gray-700 text-base">
-            {description}
+            {description}<br />
+            <a href={githubLink} class="underline">source code</a> ·
+            <a href={link} class="underline">project link</a>
         </p>
     </div>
 </div>
