@@ -4,7 +4,7 @@
         var mobile = require("is-mobile");
 
         if (mobile()) {
-            return Astro.redirect("/mobile");
+            Astro.redirect("/mobile");
         }
     </script>
 
