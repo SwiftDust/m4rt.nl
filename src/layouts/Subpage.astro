@@ -11,14 +11,16 @@ const { id = "window", title = "Window Title", closed = "" } = Astro.props;
     role="dialog"
     aria-hidden={closed ? "true" : "false"}
 >
-    <div class="gap-4 flex items-center">
+    <div class="gap-4 flex items-center md:justify-end mt-12 md:mt-0">
         <span class="icon-[pixel--arrow-left-solid]" aria-hidden="true"></span>
         <button class="underline font-serif home-btn" type="button"
             >Back home</button
         >
     </div>
-    <div class="overflow-y-auto pb-8">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-mono">{title}</h2>
+    <div class="overflow-y-auto pb-8 md:mt-8">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-mono">
+            {title}
+        </h2>
         <div class="mt-4 font-serif text-base sm:text-lg">
             <slot />
         </div>
