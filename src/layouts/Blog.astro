@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+const { frontmatter } = Astro.props;
+---
+
+<Layout>
+    <meta charset="utf-8" />
+    <div class="items-center justify-center flex flex-col mt-16 ml-4">
+        <div>
+            <h1
+                class="text-xl md:text-6xl font-bold font-serif text-primary justify-center"
+            >
+                {frontmatter.title}
+            </h1>
+            <div class="self-start py-4 flex flex-row gap-1">
+                <p class="align-left font-mono text-gray-500">
+                    {frontmatter.pubDate.toString().slice(0, 10)}
+                </p>
+                ·
+                <a href="/" class="font-mono text-gray-500 italic underline"
+                    >back home</a
+                >
+            </div>
+        </div>
+        <img
+            src={frontmatter.image.url}
+            alt={frontmatter.image.alt}
+            class="rounded-2xl shadow-gray-200 shadow-2xl w-2xl aspect-video object-cover mx-16"
+        />
+        <span class="px-16"></span>
+        <div class="font-serif">
+            <slot />
+        </div>
+        <span class="px-16"></span>
+    </div></Layout
+>
