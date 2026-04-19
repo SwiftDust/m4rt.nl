@@ -6,6 +6,10 @@ import { Image } from "astro:assets";
 
 import "../styles/global.css";
 import bg1 from "../assets/bg1.png";
+
+const allPosts = Object.values(
+    import.meta.glob("./blog/*.md", { eager: true }),
+);
 ---
 
 <Layout>
@@ -94,6 +98,37 @@ import bg1 from "../assets/bg1.png";
         <Subpage id="blog-page" title="blog" closed="true">
             i write about some stupid stuff that interests me here. view a list
             of articles below!
+
+            {
+                allPosts.map((post: any) => (
+                    <div class="flex flex-row bg-white my-4 mr-4 rounded-2xl gap-4">
+                        <img
+                            src={post.frontmatter.image.url}
+                            alt={post.frontmatter.title}
+                            class="w-32 h-32 object-cover rounded-l-2xl"
+                        />
+                        <div class="flex flex-col">
+                            <a
+                                href={post.url}
+                                class="text-black text-2xl mt-2 underline"
+                            >
+                                {post.frontmatter.title}
+                            </a>
+                            <p class="text-black text-sm font-mono">
+                                {post.frontmatter.description}
+                            </p>
+                            <div class="mt-auto mb-4">
+                                <p class=" text-gray-500 text-xs font-mono">
+                                    written on
+                                    {new Date(
+                                        post.frontmatter.pubDate,
+                                    ).toLocaleDateString()}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
         </Subpage>
 
         <Subpage id="projects-page" title="projects" closed="true">
