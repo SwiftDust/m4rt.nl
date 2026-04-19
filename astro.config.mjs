@@ -10,6 +10,7 @@ import node from "@astrojs/node";
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+    assetsInclude: ["**/*.HEIC"],
   },
 
   integrations: [icon()],
