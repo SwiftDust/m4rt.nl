@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@astrojs/node": "^10.0.4",
+    "@lucide/astro": "^1.8.0",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^6.1.5",
     "astro-icon": "^1.1.5",
     "flowbite": "^4.0.1",
     "is-mobile": "^5.0.0",
+    "lucide-astro": "^0.556.0",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {

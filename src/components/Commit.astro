@@ -1,0 +1,26 @@
+---
+import { GitCommitHorizontal } from "@lucide/astro";
+
+import childProcess from "node:child_process";
+
+const hash = childProcess
+    .execSync("git rev-parse --short HEAD")
+    .toString()
+    .trim();
+
+const message = childProcess
+    .execSync("git log -1 --pretty=%s")
+    .toString()
+    .trim();
+---
+
+<a
+    href={`https://github.com/SwiftDust/m4rt.nl/commit/${hash}`}
+    target="_blank"
+    class="flex gap-1 justify-center hover:underline my-1 text-gray-500 text-md font-mono"
+>
+<span>
+    <GitCommitHorizontal />
+</span>
+{message}
+<span class="text-accent">({hash})</span>
