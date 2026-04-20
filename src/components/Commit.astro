@@ -17,10 +17,11 @@ const message = childProcess
 <a
     href={`https://github.com/SwiftDust/m4rt.nl/commit/${hash}`}
     target="_blank"
-    class="flex gap-1 justify-center hover:underline my-1 text-gray-500 text-md font-mono"
+    class="hidden md:flex gap-1 justify-center hover:underline my-1 text-gray-500 text-md font-mono"
 >
-<span>
-    <GitCommitHorizontal />
-</span>
-{message}
-<span class="text-accent">({hash})</span>
+    <span>
+        <GitCommitHorizontal />
+    </span>
+    {message}
+    <span class="text-accent">({hash})</span>
+</a>
