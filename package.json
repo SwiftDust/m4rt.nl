@@ -24,7 +24,8 @@
     "@iconify/tailwind": "^1.2.0",
     "@iconify/tailwind4": "^1.2.0",
     "@tailwindcss/typography": "^0.5.19",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "prettier": "3.9.4"
   },
   "private": true,
   "peerDependencies": {
