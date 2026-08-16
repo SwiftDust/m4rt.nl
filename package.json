@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^10.0.4",
+    "@astrojs/vercel": "^10.0.8",
     "@lucide/astro": "^1.8.0",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^6.1.5",
