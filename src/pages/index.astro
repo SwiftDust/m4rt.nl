@@ -101,24 +101,26 @@ const allPosts = Object.values(
 
             {
                 allPosts.map((post: any) => (
-                    <div class="flex flex-row bg-white my-4 mr-4 rounded-2xl gap-4">
+                    <div
+                        class="my-4 flex w-full flex-col gap-4 rounded-2xl bg-white sm:flex-row"
+                    >
                         <img
                             src={post.frontmatter.image.url}
                             alt={post.frontmatter.title}
-                            class="w-32 h-32 object-cover rounded-l-2xl"
+                            class="h-40 w-full rounded-t-2xl object-cover sm:h-32 sm:w-32 sm:rounded-l-2xl sm:rounded-tr-none"
                         />
-                        <div class="flex flex-col">
+                        <div class="flex min-w-0 flex-1 flex-col">
                             <a
                                 href={post.url}
-                                class="text-black text-2xl mt-2 underline"
+                                class="mt-2 break-words text-xl text-black underline sm:text-2xl"
                             >
                                 {post.frontmatter.title}
                             </a>
-                            <p class="text-black text-sm font-mono">
+                            <p class="break-words font-mono text-sm text-black">
                                 {post.frontmatter.description}
                             </p>
-                            <div class="mt-auto mb-4">
-                                <p class=" text-gray-500 text-xs font-mono">
+                            <div class="mb-4 mt-auto">
+                                <p class="font-mono text-xs text-gray-500">
                                     written on
                                     {new Date(
                                         post.frontmatter.pubDate,
@@ -133,7 +135,7 @@ const allPosts = Object.values(
 
         <!-- ===MAIN PAGE CONTENT=== -->
         <div
-            class="flex flex-col min-h-screen items-center justify-center align-middle px-4"
+            class="flex min-h-screen w-full flex-col items-center justify-center px-4 sm:px-6"
         >
             <p
                 class="text-xs sm:text-sm text-black italic font-mono py-4 text-center"
@@ -142,12 +144,12 @@ const allPosts = Object.values(
             </p>
             <div class="relative">
                 <h1
-                    class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-mono text-primary py-4 align-middle text-center"
+                    class="py-4 text-center font-mono text-4xl text-primary sm:text-6xl md:text-7xl lg:text-8xl"
                 >
                     <span>mart zielma</span><span class="relative"
                         >n
                         <div
-                            class="invisible sm:visible sticker rotate-12 absolute -top-12 -right-96"
+                            class="sticker hidden rotate-12 -top-10 -right-24 lg:block xl:-right-32"
                         >
                             <div class="reveal circle_wrapper">
                                 <div class="circle bg-white"></div>
@@ -171,9 +173,11 @@ const allPosts = Object.values(
             <Image
                 src={bg1}
                 alt="A background of a cityscape"
-                class="h-45 md:h-55 w-auto pointer-events-none -mt-66 md:absolute md:-mt-20 md:-ml-120"
+                class="h-40 w-auto max-w-full pointer-events-none -mt-56 sm:h-45 sm:-mt-66 md:absolute md:h-55 md:-mt-20 md:-ml-120"
             />
-            <p class="text-black font-serif py-4 mt-2 md:-mt-20 text-center">
+            <p
+                class="mt-2 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 py-4 text-center font-serif text-sm text-black sm:text-base md:-mt-20"
+            >
                 <button
                     id="about"
                     class="nav-btn underline italic relative z-20 pointer-events-auto"
@@ -200,7 +204,7 @@ const allPosts = Object.values(
                 >
             </p>
 
-            <div class="flex flex-row gap-4 flex-wrap justify-center">
+            <div class="flex flex-row flex-wrap justify-center gap-3 sm:gap-4">
                 <a
                     class="icon-[pixel--linkedin] h-8 w-8"
                     href="https://www.linkedin.com/in/mart-zielman/"

@@ -8,15 +8,17 @@ const { frontmatter } = Astro.props;
 
 <Layout>
     <meta charset="utf-8" />
-    <div class="items-center justify-center flex flex-col mt-16 ml-4 mb-16">
-        <div>
+    <div
+        class="mx-auto mb-12 mt-12 flex w-full max-w-3xl flex-col items-center px-4 sm:mb-16 sm:mt-16 sm:px-6"
+    >
+        <div class="w-full">
             <h1
-                class="text-xl md:text-6xl font-bold font-serif text-primary justify-center"
+                class="font-serif text-3xl font-bold text-primary sm:text-4xl md:text-6xl"
             >
                 {frontmatter.title}
             </h1>
-            <div class="self-start py-4 flex flex-row gap-1">
-                <p class="align-left font-mono text-gray-500">
+            <div class="flex flex-row flex-wrap items-center gap-1 py-4">
+                <p class="font-mono text-gray-500">
                     {frontmatter.pubDate.toString().slice(0, 10)}
                 </p>
                 ·
@@ -28,7 +30,7 @@ const { frontmatter } = Astro.props;
         <img
             src={frontmatter.image.url}
             alt={frontmatter.image.alt}
-            class="rounded-2xl shadow-gray-200 shadow-2xl w-2xl aspect-video object-cover mx-16"
+            class="mt-6 aspect-video w-full max-w-2xl rounded-2xl object-cover shadow-2xl shadow-gray-200"
         />
         <Prose>
             <slot />
