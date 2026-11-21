@@ -135,50 +135,45 @@ const allPosts = Object.values(
 
         <!-- ===MAIN PAGE CONTENT=== -->
         <div
-            class="flex min-h-screen w-full flex-col items-center justify-center px-4 sm:px-6"
+            class="flex min-h-screen w-full flex-col items-center justify-center px-4 sm:px-6 md:px-4"
         >
             <p
-                class="mb-2 text-center font-mono text-xs italic text-black sm:mb-4 sm:text-sm"
+                class="mb-2 py-2 text-center font-mono text-xs italic text-black sm:mb-4 sm:text-sm sm:py-4 md:mb-0 md:py-4"
                 id="description"
             >
             </p>
-            <div
-                class="relative w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-3xl"
-            >
+
+            <!-- Mobile: name overlaid inside the image -->
+            <div class="relative w-full max-w-sm sm:max-w-xl md:hidden">
                 <Image
                     src={bg1}
                     alt="A background of a cityscape"
                     class="pointer-events-none h-auto w-full select-none"
                 />
                 <h1
-                    class="absolute inset-0 z-10 flex items-center justify-center px-2 text-center font-mono text-3xl text-primary whitespace-nowrap sm:text-5xl md:text-6xl lg:text-7xl"
+                    class="absolute inset-0 z-10 flex items-center justify-center px-2 text-center font-mono text-3xl text-primary whitespace-nowrap sm:text-5xl"
                 >
-                    <span>mart zielma</span><span class="relative"
-                        >n
-                        <div
-                            class="sticker hidden rotate-12 -top-10 -right-24 lg:block xl:-right-32"
-                        >
-                            <div class="reveal circle_wrapper">
-                                <div class="circle bg-white"></div>
-                            </div>
-
-                            <div class="sticky">
-                                <div class="front circle_wrapper">
-                                    <div class="circle"></div>
-                                </div>
-                            </div>
-
-                            <div class="sticky anim750">
-                                <div class="back circle_wrapper anim750">
-                                    <div class="circle anim750"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </span>
+                    mart zielman
                 </h1>
             </div>
+
+            <!-- Desktop: original layout with the image beside the title -->
+            <div class="hidden md:contents">
+                <div class="relative">
+                    <h1
+                        class="py-4 text-center font-mono text-7xl text-primary lg:text-8xl"
+                    >
+                        mart zielman
+                    </h1>
+                </div>
+                <Image
+                    src={bg1}
+                    alt="A background of a cityscape"
+                    class="h-55 w-auto pointer-events-none md:absolute md:-mt-20 md:-ml-120"
+                />
+            </div>
             <p
-                class="mt-6 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 py-2 text-center font-serif text-sm text-black sm:mt-8 sm:text-base"
+                class="mt-6 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 py-2 text-center font-serif text-sm text-black sm:mt-8 sm:text-base md:-mt-20 md:block md:py-4"
             >
                 <button
                     id="about"
