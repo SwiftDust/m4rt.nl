@@ -138,13 +138,20 @@ const allPosts = Object.values(
             class="flex min-h-screen w-full flex-col items-center justify-center px-4 sm:px-6"
         >
             <p
-                class="text-xs sm:text-sm text-black italic font-mono py-4 text-center"
+                class="mb-2 text-center font-mono text-xs italic text-black sm:mb-4 sm:text-sm"
                 id="description"
             >
             </p>
-            <div class="relative">
+            <div
+                class="relative w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-3xl"
+            >
+                <Image
+                    src={bg1}
+                    alt="A background of a cityscape"
+                    class="pointer-events-none h-auto w-full select-none"
+                />
                 <h1
-                    class="py-4 text-center font-mono text-4xl text-primary sm:text-6xl md:text-7xl lg:text-8xl"
+                    class="absolute inset-0 z-10 flex items-center justify-center px-2 text-center font-mono text-3xl text-primary whitespace-nowrap sm:text-5xl md:text-6xl lg:text-7xl"
                 >
                     <span>mart zielma</span><span class="relative"
                         >n
@@ -170,13 +177,8 @@ const allPosts = Object.values(
                     </span>
                 </h1>
             </div>
-            <Image
-                src={bg1}
-                alt="A background of a cityscape"
-                class="h-40 w-auto max-w-full pointer-events-none -mt-56 sm:h-45 sm:-mt-66 md:absolute md:h-55 md:-mt-20 md:-ml-120"
-            />
             <p
-                class="mt-2 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 py-4 text-center font-serif text-sm text-black sm:text-base md:-mt-20"
+                class="mt-6 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 py-2 text-center font-serif text-sm text-black sm:mt-8 sm:text-base"
             >
                 <button
                     id="about"
