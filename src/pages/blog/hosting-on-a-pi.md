@@ -1,61 +1,65 @@
 ---
 layout: ../../layouts/Blog.astro
-title: 'how and why i hosted this site on a raspberry pi'
+title: 'How and why I hosted this site on a Raspberry Pi'
 pubDate: 2026-04-18
 image:
     url: '/blog-assets/raspberry-pi.jpg'
-    alt: 'my raspberry pi for hosting'
-description: 'coincidence? maybe. did i learn something from this? definitely.'
+    alt: 'My Raspberry Pi for hosting'
+description: 'Coincidence? Maybe. Did I learn something from this? Definitely.'
 ---
 
-i just so happened to have bought a domain and had a spare pi laying around. so i started making a website. having played around with astro and svelte before, i find myself hesitating between the two. i finally settled with astro, and i have no regrets. i could write another blog post about just how nice astro is for simple websites, but that's something for (maybe?) later.
+I just so happened to have bought a domain and had a spare Pi lying around. So I started making a website. Having played around with Astro and Svelte before, I find myself hesitating between the two. I finally settled with Astro, and I have no regrets. I could write another blog post about just how nice Astro is for simple websites, but that's something for (maybe?) later.
 
-but mart, you may ask. why a raspberry pi when it is literally a static website? what on earth do you need a pi for? well. turns out there was a specific library that didn't work with vercel and was in fact dynamic instead of static. that was on another website i built before this (also hosted on this subdomain and the raspberry pi) and the library (used for i18n) was quite nice, despite being unmaintained.
+But Mart, you may ask. Why a Raspberry Pi when it is literally a static website? What on earth do you need a Pi for? Well. Turns out there was a specific library that didn't work with Vercel and was in fact dynamic instead of static. That was on another website I built before this (also hosted on this subdomain and the Raspberry Pi), and the library (used for i18n) was quite nice, despite being unmaintained.
 
-so here we are. but _how_ does it work?
-please note this isn't an exhaustive guide, but rather your point of reference to start selfhosting your own websites that are built with a node.js framework.
+So here we are. But _how_ does it work?
+Please note this isn't an exhaustive guide, but rather your point of reference to start self-hosting your own websites that are built with a Node.js framework.
 
-## step 1: the port forwarding
-first of all, you need to make sure your router's settings to forward your IP address to that of your raspberry pi! google it, there are a lot of tutorials on this! it differs per router so it's a good idea to check how it works for your specific one.
+## Step 1: Port forwarding
 
-next, you'll need to `git pull` your repository to the machine.
+First of all, you need to make sure your router's settings forward your IP address to that of your Raspberry Pi! Google it, there are a lot of tutorials on this! It differs per router, so it's a good idea to check how it works for your specific one.
 
-then, install caddy and add this to your caddyfile (or something similar).
+Next, you'll need to `git pull` your repository to the machine.
+
+Then, install Caddy and add this to your Caddyfile (or something similar).
 
 ```
 m4rt.nl {
-        root * /home/mart/Documents/m4rt.nl # change this to the actual root of your website
+        root * /home/mart/Documents/m4rt.nl # Change this to the actual root of your website
 
         file_server
-        reverse_proxy localhost:4321 # 4321 for Astro, 5173 for Svelte/kit, 3000 for React
+        reverse_proxy localhost:4321 # 4321 for Astro, 5173 for SvelteKit, 3000 for React
 }
 ```
 
-make sure to reload your caddyfile. for details on how to set this up, you can consult google!
+Make sure to reload your Caddyfile. For details on how to set this up, you can consult Google!
 
-## step 2: configure DNS
-once you've bought a domain, go to your provider and add a new record:
+## Step 2: Configure DNS
+
+Once you've bought a domain, go to your provider and add a new record:
 
 ```
 A - yoursite.com - public IP address of your router
 ```
 
-your router will now automatically reroute the incoming traffic to its ip address to your website!
+Your router will now automatically reroute the incoming traffic to its IP address to your website!
 
-## step 3: build & serve your website
-you now need to package your website into a javascript file! this works almost always the same by just running `npm run build` (or your preferred package manager). now, this creates a directory called `dist` or `out` or something similar. open this directory and look for an entrypoint file. it's usually called `entry.cjs` or `entry.mjs`.
+## Step 3: Build and serve your website
 
-once you've done that, install pm2! pm2 is a service that lets you run node.js apps until you tell it to stop! you can install it with a simple command: `npm i -g pm2`.
+You now need to package your website into a JavaScript file! This works almost always the same by just running `npm run build` (or your preferred package manager). Now, this creates a directory called `dist` or `out` or something similar. Open this directory and look for an entrypoint file. It's usually called `entry.cjs` or `entry.mjs`.
 
-now, `cd` into your dist directory and run `pm2 run entry.mjs`!
+Once you've done that, install PM2! PM2 is a service that lets you run Node.js apps until you tell it to stop! You can install it with a simple command: `npm i -g pm2`.
 
-that's it, your website should now be live :) yay!
+Now, `cd` into your dist directory and run `pm2 run entry.mjs`!
 
-## step 4: advanced ci
-you probably noticed something's off here compared to vercel: what if you commit something? your website won't build! luckily we have something called github actions for this.
+That's it, your website should now be live :) Yay!
 
-for this, you want to make a new directory called `.github` and inside it, a directory called `workflows`. create a file in here and call it something like `update_server.yml` but you can name it whatever you want.
-add the following in it:
+## Step 4: Advanced CI
+
+You probably noticed something's off here compared to Vercel: what if you commit something? Your website won't build! Luckily we have something called GitHub Actions for this.
+
+For this, you want to make a new directory called `.github` and inside it, a directory called `workflows`. Create a file in here and call it something like `update_server.yml`, but you can name it whatever you want.
+Add the following in it:
 
 ```yml
 name: Update server code and restart the server
@@ -69,33 +73,33 @@ jobs:
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.HOST }}
-          username: your-username # this is the username of your sudo user on your raspberry pi!
+          username: your-username # This is the username of your sudo user on your Raspberry Pi!
           password: ${{ secrets.PASSWORD }}
           script: |
             ~/bin/pull-all.sh
 ```
 
-now, go into your repository settings and go to actions secrets: 
-![actions secrets](/blog-assets/actions-secrets.png)
+Now, go into your repository settings and go to Actions secrets:
+![Actions secrets](/blog-assets/actions-secrets.png)
 
-click on new secrets, and add a secret called `HOST` with your host IP of your raspberry pi and `PASSWORD`.
+Click on new secrets, and add a secret called `HOST` with your host IP of your Raspberry Pi and `PASSWORD`.
 
-then, create a script in `bin`, i called mine `pull-all.sh` and put the following in it:
+Then, create a script in `bin`, I called mine `pull-all.sh` and put the following in it:
 
 ```bash
 #!/usr/bin/env bash
 set -euo pipefail
 
-BASE_DIR="$HOME/Documents" # change this to the one you use often
+BASE_DIR="$HOME/Documents" # Change this to the one you use often
 
-# these are the ports i'm using for my two websites, change accordingly. it's best to set this manually as Linux also uses some ports to run system software and you do not want to overwrite this.
-PORTS=(4321 4322) 
+# These are the ports I'm using for my two websites, change accordingly. It's best to set this manually as Linux also uses some ports to run system software and you do not want to overwrite this.
+PORTS=(4321 4322)
 PORT_COUNT=${#PORTS[@]}
 PORT_INDEX=0
 
 echo "updating git repositories..."
 
-# this checks if a directory is a repository and pulls the latest changes
+# This checks if a directory is a repository and pulls the latest changes
 for dir in "$BASE_DIR"/*/ ; do
     if [[ -d "$dir/.git" ]]; then
         echo "→ Entering $dir"
@@ -106,8 +110,8 @@ done
 echo -e "building websites with assigned ports..."
 
 for dir in "$BASE_DIR"/*/ ; do
-    # checks if it's a node.js project, if you use Deno you might need to change this
-    if [[ -f "$dir/package.json" ]]; then 
+    # Checks if it's a Node.js project. If you use Deno, you might need to change this
+    if [[ -f "$dir/package.json" ]]; then
         CURRENT_PORT=${PORTS[$PORT_INDEX]}
 
         echo "building in $dir using PORT: $CURRENT_PORT"
@@ -125,6 +129,6 @@ echo -e "restarting pm2..."
 pm2 restart all
 ```
 
-that's it! thanks for reading and have a nice day.
+That's it! Thanks for reading and have a nice day.
 
-mart out
+Mart out
