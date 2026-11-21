@@ -11,17 +11,19 @@ const { id = "window", title = "Window Title", closed = "" } = Astro.props;
     role="dialog"
     aria-hidden={closed ? "true" : "false"}
 >
-    <div class="gap-4 flex items-center md:justify-end mt-12 md:mt-0">
+    <div class="mt-12 flex items-center gap-4 md:mt-0 md:justify-end">
         <span class="icon-[pixel--arrow-left-solid]" aria-hidden="true"></span>
         <button class="underline font-serif home-btn" type="button"
             >Back home</button
         >
     </div>
-    <div class="overflow-y-auto pb-8 md:mt-8">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-mono">
+    <div class="min-h-0 overflow-y-auto pb-8 md:mt-8">
+        <h2
+            class="break-words font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+        >
             {title}
         </h2>
-        <div class="mt-4 font-serif text-base sm:text-lg">
+        <div class="mt-4 break-words font-serif text-base sm:text-lg">
             <slot />
         </div>
     </div>
@@ -33,7 +35,7 @@ const { id = "window", title = "Window Title", closed = "" } = Astro.props;
         inset: 0;
         z-index: 50;
         background: rgba(55, 65, 81, 1);
-        padding: 1rem;
+        padding: clamp(1rem, 4vw, 2rem);
         color: #fff;
         display: flex;
         flex-direction: column;
@@ -44,6 +46,7 @@ const { id = "window", title = "Window Title", closed = "" } = Astro.props;
             opacity 300ms ease;
         pointer-events: none;
         overflow-y: auto;
+        overscroll-behavior: contain;
     }
 
     .subpage.is-visible {
