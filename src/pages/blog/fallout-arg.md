@@ -3,7 +3,7 @@ layout: ../../layouts/Blog.astro
 title: 'Hosting an ARG for 150 participants'
 pubDate: 2026-11-22
 image:
-    url: 'https://private-user-images.githubusercontent.com/93423789/626655513-493d4534-be61-4cb0-af2f-d825d36af036.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTUzNjUzNzcsIm5iZiI6MTc5NTM2NTA3NywicGF0aCI6Ii85MzQyMzc4OS82MjY2NTU1MTMtNDkzZDQ1MzQtYmU2MS00Y2IwLWFmMmYtZDgyNWQzNmFmMDM2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjExMjIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYxMTIyVDE2MzExN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTc0NGMxMDY1ZDlhZWQzYjE2NGYxYTlmMTdhYjExYzM0MzM4Y2IyNTg0YjMyNGQyNmE0OGJkMTQwNDcxYjUzN2QmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.llsxGVDJMGCsGnpjLE3VOo5cCJW-iGKgW0fgSAmAgzM'
+    url: '/blog-assets/arg-video.png'
     alt: 'The ARG planning doc'
 description: 'One of the most hectic experiences I have had, but the end result was amazing'
 ---
