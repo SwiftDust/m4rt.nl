@@ -11,9 +11,9 @@ Hack Club has teached me how to ship *real* project and especially that they don
 
 After that, I wasn't really a big part of the Hack Club community anymore. I thought the only things you could do was chat there, with the occasional event happening. So it wasn't until November of 2025 that I shipped another few projects. 
 
-Around Spring of 2026, I became a way more active Hack Clubber! This was also when I organised [my first in-person event](/blog/how-i-organised-a-hackathon). Here I met my first IRL Hack Clubber friends. They do remain some of my best friends until this day. In a time when I wasn't feeling very happy, Hack Club showed me there were people who really cared about me. Now that I'm feeling much better, it's still very nice to know there's a community I can always go to, with a lot of people that have the same interests as me!
+Around Spring of 2026, I became a way more active Hack Clubber! This was also when I organised [my first in-person event](https://m4rt.nl/blog/how-i-organised-a-hackathon). Here I met my first IRL Hack Clubber friends. They do remain some of my best friends until this day. In a time when I wasn't feeling very happy, Hack Club showed me there were people who really cared about me. Now that I'm feeling much better, it's still very nice to know there's a community I can always go to, with a lot of people that have the same interests as me!
 
-The summer of 2026 was a highlight for me! I've done some cool things related to Hack Club that summer. I've [hosted an ARG for 150 participants](/blog/fallout-arg) and [went to my first Hack Club adventure](/strandbeest-hackathon)!
+The summer of 2026 was a highlight for me! I've done some cool things related to Hack Club that summer. I've [hosted an ARG for 150 participants](https://m4rt.nl/blog/fallout-arg) and [went to my first Hack Club adventure](https://m4rt.nl/blog/strandbeest-hackathon)!
 
 Now, I'm starting to get into hardware more and more, something I probably would've never done without the excellent guidance of Hack Club.
 
