@@ -99,38 +99,31 @@ const allPosts = Object.values(
             i write about some stupid stuff that interests me here. view a list
             of articles below!
 
-            {
-                allPosts.map((post: any) => (
-                    <div
-                        class="my-4 flex w-full flex-col gap-4 rounded-2xl bg-white sm:flex-row"
-                    >
-                        <img
-                            src={post.frontmatter.image.url}
-                            alt={post.frontmatter.title}
-                            class="h-40 w-full rounded-t-2xl object-cover sm:h-32 sm:w-32 sm:rounded-l-2xl sm:rounded-tr-none"
-                        />
-                        <div class="flex min-w-0 flex-1 flex-col">
-                            <a
-                                href={post.url}
-                                class="mt-2 break-words text-xl text-black underline sm:text-2xl"
-                            >
-                                {post.frontmatter.title}
-                            </a>
-                            <p class="break-words font-mono text-sm text-black">
-                                {post.frontmatter.description}
-                            </p>
-                            <div class="mb-4 mt-auto">
-                                <p class="font-mono text-xs text-gray-500">
-                                    written on
-                                    {new Date(
-                                        post.frontmatter.pubDate,
-                                    ).toLocaleDateString()}
+            <ul class="mt-6 border-t border-white/30">
+                {
+                    allPosts.map((post: any) => (
+                        <li class="flex flex-col gap-1 border-b border-white/30 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                            <div class="min-w-0">
+                                <a
+                                    href={post.url}
+                                    class="break-words font-serif text-xl underline sm:text-2xl"
+                                >
+                                    {post.frontmatter.title}
+                                </a>
+                                <p class="break-words font-mono text-sm text-gray-300">
+                                    {post.frontmatter.description}
                                 </p>
                             </div>
-                        </div>
-                    </div>
-                ))
-            }
+                            <p class="shrink-0 font-mono text-xs text-gray-300">
+                                written on
+                                {new Date(
+                                    post.frontmatter.pubDate,
+                                ).toLocaleDateString()}
+                            </p>
+                        </li>
+                    ))
+                }
+            </ul>
         </Subpage>
 
         <!-- ===MAIN PAGE CONTENT=== -->

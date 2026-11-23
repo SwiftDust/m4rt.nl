@@ -27,11 +27,13 @@ const { frontmatter } = Astro.props;
                 >
             </div>
         </div>
-        <img
-            src={frontmatter.image.url}
-            alt={frontmatter.image.alt}
-            class="mt-6 aspect-video w-full max-w-2xl rounded-2xl object-cover shadow-2xl shadow-gray-200"
-        />
+        {frontmatter.image && (
+            <img
+                src={frontmatter.image.url}
+                alt={frontmatter.image.alt}
+                class="mt-6 aspect-video w-full max-w-2xl rounded-2xl object-cover shadow-2xl shadow-gray-200"
+            />
+        )}
         <Prose>
             <slot />
         </Prose>
