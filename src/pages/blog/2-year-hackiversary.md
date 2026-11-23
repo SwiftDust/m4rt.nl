@@ -7,7 +7,9 @@ description: 'How it changed my life'
 
 I still remember it vividly. A friend of mine really wanted a ThinkPad. This just so happened to be in the subject line of an email I'd received some time prior. All you had to code and you could earn a Thinkpad. That sounds too good to be true, right? I decided to take a look anyways, and that might be one of the best decisions I've ever made.
 
-Hack Club has teached me how to ship *real* project and especially that they don't need to be projects. Before that, I was working with some guys that thought they could make the best Discord bot at that time. I wanted to code, but thought this wasn't a super fun activity, so I didn't commit a lot of time with it. I didn't spend a lot of time on High Seas, because I was busy with school and not *extremely* good on coding, but ended up shipping three projects with 22 hours of logged project time in total.
+Hack Club has teached me how to ship *real* projects and especially that they don't need to be very serious or successful. Before that, I was working with some guys who thought they could make the best Discord bot at the time. I wanted to code, but thought this wasn't a super fun activity, so I didn't commit a lot of time to it. 
+
+The first online event I did was high seas. I didn't spend a lot of time on High Seas, because I was busy with school and not *extremely* good at coding, but ended up shipping three projects with 22 hours of logged project time in total.
 
 After that, I wasn't really a big part of the Hack Club community anymore. I thought the only things you could do was chat there, with the occasional event happening. So it wasn't until November of 2025 that I shipped another few projects. 
 
@@ -17,4 +19,4 @@ The summer of 2026 was a highlight for me! I've done some cool things related to
 
 Now, I'm starting to get into hardware more and more, something I probably would've never done without the excellent guidance of Hack Club.
 
-I'm very excited to where this will bring me! Cheers!
+I'm very excited to see where this will bring me! Cheers!
