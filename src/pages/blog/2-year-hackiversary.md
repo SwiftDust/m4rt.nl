@@ -9,7 +9,7 @@ I still remember it vividly. A friend of mine really wanted a ThinkPad. This jus
 
 Hack Club has teached me how to ship *real* projects and especially that they don't need to be very serious or successful. Before that, I was working with some guys who thought they could make the best Discord bot at the time. I wanted to code, but thought this wasn't a super fun activity, so I didn't commit a lot of time to it. 
 
-The first online event I did was high seas. I didn't spend a lot of time on High Seas, because I was busy with school and not *extremely* good at coding, but ended up shipping three projects with 22 hours of logged project time in total.
+The first online event I did was High Seas. I didn't spend a lot of time on High Seas, because I was busy with school and not *extremely* good at coding, but ended up shipping three projects with 22 hours of logged project time in total.
 
 After that, I wasn't really a big part of the Hack Club community anymore. I thought the only things you could do was chat there, with the occasional event happening. So it wasn't until November of 2025 that I shipped another few projects. 
 
